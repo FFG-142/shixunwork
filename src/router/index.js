@@ -11,7 +11,7 @@ import Password from '@/views/Password.vue'
 import Article from '@/views/Article.vue'
 import Personal from '@/views/Personal.vue'
 import PersonalDetail from '@/views/PersonalDetail.vue'
-
+import ArticleDetail from '@/views/ArticleDetail.vue'
 
 Vue.use(VueRouter)
 
@@ -46,6 +46,10 @@ const routes = [
 			component : PersonalDetail
 		},
 		{
+						path: 'article/:id',
+						component: ArticleDetail
+					},
+		{
 			path : 'personal' ,
 			component : Personal,
 			children :[
@@ -61,6 +65,7 @@ const routes = [
 					path : 'password',
 					component : Password
 				}
+				
 			]
 		}
 	]

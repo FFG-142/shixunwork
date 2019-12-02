@@ -3,6 +3,7 @@
 		<div class=" bl-df-center">
 			<div class="bl-col-8 left">
 				<div class="top bl-df-between">
+					
 					<div class="bl-df-start">
 						<div class="bl-content-avatar">
 							<img :src="user.avatar" alt="" class="bl-btn-circle">

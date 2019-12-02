@@ -8,8 +8,14 @@
  	/* 将原色的内外边距算入总的尺寸 */
  	box-sizing: border-box;
  	color: #393D49;
+	
  }
 
+.back-img{
+	width: 100%;
+	height: 100%;
+	background: url(../background.png);
+}
 img {
 	width: 100%;
 	height: 100%;
@@ -117,6 +123,10 @@ img {
 
  }
 
+ 
+ .backg{
+	 background: url(../background.png);
+ }
  /* 居中留白容器 */
  .bl-container {
  	width: 70%;
@@ -274,7 +284,8 @@ img {
  /* 表单元素 */
  .bl-input-box {
  	display: block;
- 	height: 40px;
+	width: 180px;
+ 	height: 30px;
  	outline: none;
  	border: 1px solid #000000;
  	border-radius: 5px;
@@ -381,8 +392,8 @@ img {
 
 /* logo设置 */
 .bl-logo {
-	height: 50px;
-	width: 50px;
+	height: 70px;
+	width: 100px;
 }
 
 /* 主页右边栏卡片样式 */
@@ -412,4 +423,31 @@ img {
 		height: 160px;
 		width: 100%;
 		margin-top: 20px;
+}
+/* 头像样式 */
+.avatar-xs {
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+}
+
+.avatar-lg {
+	display: inline-block;
+	width: 55px;
+	height: 55px;
+	border-radius: 50%;
+}
+
+.avatar-xs,
+.avatar-lg:hover {
+	cursor: pointer;
+}
+.meta {
+	font-size: 13px;
+	color: #b4b4b4;
+}
+/* 间距 */
+.gutter {
+	margin-right: 10px;
 }

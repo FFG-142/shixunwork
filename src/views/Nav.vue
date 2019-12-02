@@ -3,7 +3,7 @@
 		<div class="nav bl-df-between">
 			<ul>
 				<li class="bl-logo logo-place">
-					<img src="https://img02.sogoucdn.com/net/a/04/link?url=https%3A%2F%2Fi04piccdn.sogoucdn.com%2F66c1cb81e9e49ec5&appid=122" alt="">
+					<img src="https://cdn2.jianshu.io/assets/web/nav-logo-4c7bbafe27adc892f3046e6978459bac.png" alt="">
 				</li>
 			</ul> 
 			
@@ -144,9 +144,9 @@
 		width: 100%;
 		padding-left: 60px;
 		padding-right: 60px;
-		background: linear-gradient(to bottom, rgb(255, 101, 144), rgb(123, 110, 157));
+		background:  rgb(76,180,231);
 		margin: 0 auto;
-		z-index: 999;
+		
 	}
 	
 	img {

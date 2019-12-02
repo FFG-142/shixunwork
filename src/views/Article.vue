@@ -3,23 +3,28 @@
 		<div class="media-wraaper">
 			<div class="media" v-for="(article, index) in articles" :key="index">
 				<div class="media-left">
-					<img :src="'https://images.weserv.nl/?url='+ article.avatar" class="bl-avatar-normal" />
-					<p class="sub-title">{{ article.title }}</p>
+					<!-- <img :src="'https://images.weserv.nl/?url='+ article.avatar" class="avatar-lg link" /> -->
+					<router-link :to="{ path: '/article/' + article.id }"><img :src="'https://images.weserv.nl/?url='+article.avatar" class="avatar-lg link" /></router-link>
+					<!-- <img :src="'https://images.weserv.nl/?url='+ article.avatar" class="bl-avatar-normal" /> -->
+					<!-- <img :src="'https://images.weserv.nl/?url='+ user.avatar" class="bl-avatar-normal" /> -->
+					<!-- <p class="sub-title">{{ article.title }}</p> -->
 				</div>
 				<div class="media-middle">
-					<h6>{{ article.title }}</h6>
+					<h2>{{ article.title }}</h2>
 					<p>{{ article.concent }}</p>
 					<p>
 						<span>转发量:{{article.forwardAccount}}</span>
 						<span>评论人数:{{article.commentAccount}}</span>
 						<span>关注量{{article.likeAccount}}</span>
+						<div v-for="(art, index) in articleList" :key="index">
 						<p>
 							<i class="iconfont" 
-							:class="{'thumb-up':article.isThumbUp === true}"
-							 @click="changeThumbUps(article)">&#xe611;</i>
+							:class="{'thumb-up':art.isThumbUp === true}"
+							 @click="changeThumbUps(art)">&#xe611;</i>
 							 
-							<span>{{article.thumbUpCount}}人喜欢</span>
+							<span>{{art.thumbUpCount}}人喜欢</span>
 						</p>
+						</div>
 					</p>
 				</div>
 				<div class="media-right"><img :src="'https://images.weserv.nl/?url='+ article.avatar" /></div>
@@ -31,12 +36,15 @@
 export default {
 	data() {
 		return {
-			articles: [
+			articleList: [
 				{
-					"thumbUpCount": 444
+					"thumbUpCount": 628
 				}
+				
 				],
-			isThumbUp: false
+			isThumbUp: false,
+			articles:[]
+			
 			
 			
 		};
@@ -45,8 +53,10 @@ export default {
 		this.axios.get('http://localhost:8080/article').then(res => {
 			console.log(res.data.data);
 			this.articles = res.data.data;
-		});
+		})
+		
 	},
+	
 	computed: {
 		// 解决403图片缓存问题
 		getImages(_url) {
@@ -67,13 +77,13 @@ export default {
 			this.timer = null
 		},
 		
-		changeThumbUps(book) {
-			if (book.isThumbUp == true) {
-				book.isThumbUp = false
-				book.thumbUpCount--
+		changeThumbUps(art) {
+			if (art.isThumbUp == true) {
+				art.isThumbUp = false
+				art.thumbUpCount--
 			} else {
-				book.isThumbUp = true
-				book.thumbUpCount++
+				art.isThumbUp = true
+				art.thumbUpCount++
 			}
 		},
 	}
@@ -104,7 +114,17 @@ export default {
 	.iconfont:hover {
 		cursor: pointer;
 	}
+	.thumb-up {
+		color: #FF0000;
+	}
 	
+	.avatar-lg {
+		display: inline-block;
+		width: 85px;
+		height: 85px;
+		border-radius: 50%;
+	}
+
 .media-wraaper {
 	width: 100%;
 	height: 180px;
